@@ -1,0 +1,14 @@
+{
+  "name": "ht",
+  "version": "0.0.0",
+  "description": "Deep Learning IDE",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eric Jang",
+  "license": "Apache 2.0",
+  "devDependencies": {
+    "bower": "~1.6.7"
+  }
+}

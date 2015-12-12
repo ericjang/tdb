@@ -1,0 +1,28 @@
+{
+  "name": "ht",
+  "version": "0.0.0",
+  "authors": [
+    "Eric Jang <ericjang2004@gmail.com>"
+  ],
+  "main": "main.js",
+  "keywords": [
+    "deep learning",
+    "machine learning",
+    "tensorflow",
+    "AI"
+  ],
+  "license": "Apache 2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "flux": "~2.1.1",
+    "eventemitter2": "~0.4.14",
+    "mirrorkey": "~1.2.0",
+    "react": "~0.13.3",
+    "requirejs-react-jsx": "~0.14.2",
+    "babel": "*"
+  }
+}

@@ -1,0 +1,7 @@
+# Jupyter Notebook Extension Description
+Name: HyperTree
+Description: Deep Learning IDE
+Link: evjang.com/hypertree
+#Icon: icon.png
+Main: main.js
+Compatibility: 4.x

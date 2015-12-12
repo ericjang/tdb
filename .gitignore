@@ -1,0 +1,4 @@
+*.pyc
+bower_components/
+node_modules/
+.ipynb_checkpoints/
