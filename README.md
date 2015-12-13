@@ -79,7 +79,7 @@ Evaluate the next node, then pause immediately to await user input. Unless we ha
 #### Where
 
 ```python
-list=tdb.get_exe_queue()
+q=tdb.get_exe_queue()
 ```
 
 Return value: list of remaining nodes to be evaluated, in order.
