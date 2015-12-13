@@ -56,29 +56,37 @@ To get started, check out the [MNIST Visualization Demo](notebooks/mnist_demo.ip
 
 ### Debugging
 
+#### Start 
 ```python
 status,result=tdb.debug(evals,feed_dict=None,breakpoints=None,break_immediately=False,session=None)
 ```
 
 `debug()` behaves just like Tensorflow's Session.run(). If a breakpoint is hit, `status` is set to 'PAUSED' and `result` is set to `None`. Otherwise, `status` is set to 'FINISHED' and `result` is set to a list of evaluated values.
 
+#### Continue
+```python
+status,result=tdb.c()
+```
+
+Continues execution of a paused session, until the next breakpoint or end. Behaves like `debug`.
+
+
+#### Step
 ```python
 status,result=tdb.s()
 ```
 
 Evaluate the next node, then pause immediately to await user input. Unless we have reached the end of the execution queue, `status` will remain 'PAUSED'. `result` is set to the value of the node we just evaluated.
 
-```python
-status,result=tdb.c()
-```
-
-Continues execution until the next breakpoint or end. Behaves like `debug`.
+#### Where
 
 ```python
 list=tdb.get_exe_queue()
 ```
 
 Return value: list of remaining nodes to be evaluated, in order.
+
+#### print
 
 ```python
 val=tdb.get_value(node)
