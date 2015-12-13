@@ -4,7 +4,7 @@ TensorDebugger (TDB) is a visual debugger for TensorFlow.
 
 [Video Demo](https://www.youtube.com/watch?v=VcoVEvGEmFM)
 
-![Imgur](http://i.imgur.com/n0PmXQn.gifv)
+![Imgur](http://i.imgur.com/n0PmXQn.gif)
 
 Specifically, TDB is the combination of a Python library and a Jupyter notebook extension, built around Google's TensorFlow framework. Together, these extend TensorFlow with the following features:
 
