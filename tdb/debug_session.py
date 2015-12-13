@@ -9,7 +9,6 @@ RUNNING = 'RUNNING'
 PAUSED = 'PAUSED'
 FINISHED = 'FINISHED'
 
-
 class DebugSession(object):
 	
 	def __init__(self, session=None):
@@ -71,14 +70,15 @@ class DebugSession(object):
 		if self.step==len(self._exe_order):
 			return self._finish()
 		else:
-			return self._break()
+			# if stepping, return the value of the node we just
+			# evaled
+			return self._break(value=self._cache.get(next_node.name))
 
 	def c(self):
 		"""
 		continue
 		"""
 		i,node=self._get_next_eval()
-		#pdb.set_trace()
 		if node.name in self._bpset:
 			if self.state == RUNNING:
 				return self._break()
@@ -100,6 +100,17 @@ class DebugSession(object):
 	
 	def get_exe_queue(self):
 		return self._exe_order[self.step:]
+
+	def get_value(self, node):
+		"""
+		retrieve a node value from the cache
+		"""
+		if isinstance(node,tf.Tensor):
+			return self._cache.get(node.name,None)
+		elif isinstance(node,tf.Operation):
+			return None
+		else: # handle ascii, unicode strings
+			return self._cache.get(node,None)
 
 	### 
 	### PRIVATE METHODS 
@@ -167,11 +178,11 @@ class DebugSession(object):
 					# rather than the tensor values.
 					self.session.run(node,self._original_feed_dict)
 					
-	def _break(self):
+	def _break(self,value=None):
 		self.state=PAUSED
 		i,next_node=self._get_next_eval()
 		print('Breakpoint triggered. Next Node: ', next_node.name)
-		return (self.state,None)
+		return (self.state,value)
 
 	def _finish(self):
 		self.state=FINISHED

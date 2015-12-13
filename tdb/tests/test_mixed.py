@@ -41,4 +41,7 @@ class TestDebuggingMixed(unittest.TestCase):
 		d=tdb.python_op(myneg,inputs=[c],outputs=[tf.placeholder(tf.int32)])
 		status,result=tdb.debug([d], feed_dict=None, breakpoints=None, break_immediately=False)
 		self.assertEqual(status, tdb.FINISHED)
-		self.assertEqual(result[0],-5)		
+		self.assertEqual(result[0],-5)
+		self.assertEqual(tdb.get_value(d),-5)
+		self.assertEqual(tdb.get_value(d.name),-5)
+		

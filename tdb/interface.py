@@ -34,3 +34,6 @@ def get_exe_queue():
 	global _dbsession
 	return _dbsession.get_exe_queue()
 
+def get_value(node):
+	global _dbsession
+	return _dbsession.get_value(node)
