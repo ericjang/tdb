@@ -20,9 +20,7 @@
   "dependencies": {
     "flux": "~2.1.1",
     "eventemitter2": "~0.4.14",
-    "mirrorkey": "~1.2.0",
     "react": "~0.13.3",
-    "requirejs-react-jsx": "~0.14.2",
-    "babel": "*"
+    "requirejs-react-jsx": "~0.14.2"
   }
 }
