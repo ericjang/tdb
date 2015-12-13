@@ -2,7 +2,6 @@
 # for binding to plotnode
 
 import matplotlib.pyplot as plt
-import ipdb as pdb
 import numpy as np
 
 def viz_square(data, normalize=True, cmap=plt.cm.gray, padsize=1, padval=0):
@@ -26,7 +25,6 @@ def viz_square(data, normalize=True, cmap=plt.cm.gray, padsize=1, padval=0):
 def viz_conv_weights(ctx, weight):
   # visualize all output filters 
   # for the first input channel
-  #pdb.set_trace()
   viz_square(weight.transpose(3,0,1,2)[:,:,:,0])
 
 def viz_activations(ctx, m):
@@ -57,11 +55,3 @@ def watch_loss(ctx,loss):
   ctx.loss_history.append(loss)
   plt.plot(ctx.loss_history)
   plt.ylabel('loss')
-
-# def viz_sparsity_hists(fc1w,fc2w):
-#     # visualize the distribution of sparsity across output units
-#     # fc weights are pre x post
-    
-#     plt.hist(fc1w.flatten(),alpha=0.5,label='fc1')
-#     plt.hist(fc2w.flatten(),alpha=0.5,label='fc2')
-#     plt.legend(loc='upper right')

@@ -7,7 +7,6 @@ from test_pure_tf import build_graph_tf
 
 import tensorflow as tf
 
-import ipdb as pdb
 
 """
 testing exe order stuff (topological sorting, transitive_closure, etc.)

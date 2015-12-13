@@ -2,14 +2,13 @@
 HT debugging on a simple LeNET-5 convolutional model
 """
 
-import ipdb as pdb
 import numpy as np
 import sys
 import tensorflow as tf
 import unittest
-
 import tdb
 from tdb.examples import mnist, viz
+
 
 class TestMNIST(unittest.TestCase):
   def test_1(self):

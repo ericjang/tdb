@@ -1,8 +1,8 @@
-from IPython import get_ipython
 from base64 import b64encode
+from ipykernel.comm import Comm 
+from IPython import get_ipython
 import StringIO
 import urllib
-from ipykernel.comm import Comm 
 
 _comm=None
 

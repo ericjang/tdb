@@ -15,7 +15,6 @@ import sys
 import tensorflow as tf
 import unittest
 import tdb
-import ipdb as pdb
 
 from test_pure_ht import myadd,mymult,myneg
 

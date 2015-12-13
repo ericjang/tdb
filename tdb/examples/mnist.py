@@ -2,12 +2,11 @@
 builds a simple mnist model
 """
 
-import tensorflow as tf
 import gzip
-import ipdb as pdb
 import numpy as np
-import sys
 import re
+import sys
+import tensorflow as tf
 
 FLAGS = tf.app.flags.FLAGS
 
@@ -54,9 +53,7 @@ def extract_labels(filename, num_images):
     # Convert to dense 1-hot representation.
     return (np.arange(NUM_LABELS) == labels[:, None]).astype(np.float32)
 
-def get_data():
-  data_root='/contrib/projects/tensorflow/tensorflow/tensorflow/models/image/mnist/data/'
-  #data_root='/home/data/'
+def get_data(data_root):
   train_data_filename = data_root+'train-images-idx3-ubyte.gz'
   train_labels_filename = data_root+'train-labels-idx1-ubyte.gz'
   test_data_filename = data_root+'t10k-images-idx3-ubyte.gz'

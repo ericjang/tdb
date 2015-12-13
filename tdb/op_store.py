@@ -1,6 +1,6 @@
-import tensorflow as tf
-from transitive_closure import transitive_closure
 from toposort import toposort, toposort_flatten
+from transitive_closure import transitive_closure
+import tensorflow as tf
 
 _ops={} # Map<string,tdb.PythonOp>
 _placeholder_2_op={} # Map<tf.PlaceholderTensor, tdb.PythonOp>

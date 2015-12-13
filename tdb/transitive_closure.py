@@ -1,5 +1,4 @@
 
-#import ipdb as pdb
 def _tchelper(tc_deps,evals,deps):
 	"""
 	modifies graph in place

@@ -1,8 +1,7 @@
 
+from ht_op import HTOp
 import op_store
 import tensorflow as tf
-from ht_op import HTOp
-import ipdb as pdb
 
 # debug status codes
 INITIALIZED = 'INITIALIZED'

@@ -2,9 +2,8 @@
 COUNT=0
 
 from ht_op import HTOp
-import numpy as np
 import inspect
-import ipdb as pdb
+import numpy as np
 import op_store
 
 def python_op(fn, inputs=None, outputs=None):
