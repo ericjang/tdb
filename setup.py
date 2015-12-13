@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
   name = 'tfdebugger',
   packages = find_packages(),
-  version = '0.1',
+  version = '0.1.1',
   description = 'TensorFlow Debugger',
   author = 'Eric Jang',
   author_email = 'ericjang2004@gmail.com',
