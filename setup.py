@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-  name = 'tdb',
+  name = 'tfdebugger',
   packages = find_packages(),
   version = '0.1',
   description = 'TensorFlow Debugger',
@@ -9,8 +9,12 @@ setup(
   author_email = 'ericjang2004@gmail.com',
   url = 'https://github.com/ericjang/tdb', # use the URL to the github repo
   download_url = 'https://github.com/ericjang/tdb/archive/0.1.tar.gz',
-  keywords = ['Deep Learning', 'TensorFlow',  'debugging', 'visualization'], 
-  classifiers = [],
+  keywords = ['TDB', 'Deep Learning', 'TensorFlow',  'debugging', 'visualization'], 
+  classifiers = [
+  'Intended Audience :: Developers',
+  'Intended Audience :: Science/Research',
+  'Programming Language :: Python'
+  ],
   license='Apache 2.0',
   install_requires=['toposort>=1.4']
 )
