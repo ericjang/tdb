@@ -9,9 +9,9 @@ TensorDebugger (TDB) is a visual debugger for TensorFlow.
 
 Specifically, TDB is the combination of a Python library and a Jupyter notebook extension, built around Google's TensorFlow framework. Together, these extend TensorFlow with the following features:
 
-- Set breakpoints on Ops and Tensors in the graph. Debugging features can be used with or without the visualization frontend.
+- Set breakpoints on Ops and Tensors in the graph. Graph execution is paused on breakpoints and resumed by the user (via `tdb.c()`) Debugging features can be used with or without the visualization frontend.
 - Real-time visualization of high-level information (e.g. histograms, gradient magnitudes, weight saturation) while the network is being trained.
-- Mix user-defined Python and plotting functions with TensorFlow Nodes. These take in tf.Tensors and output placeholder nodes to be plugged into TensorFlow nodes. The below diagram illustrates how TDB nodes can be mixed with the TensorFlow graph.
+- Mix user-defined Python and plotting functions with TensorFlow Nodes. These take in `tf.Tensors` and output placeholder nodes to be plugged into TensorFlow nodes. The below diagram illustrates how TDB nodes can be mixed with the TensorFlow graph.
 
 ![heterogenous](http://i.imgur.com/7xfA6Pg.png?1)
 
@@ -23,7 +23,7 @@ Modern machine learning models are parametrically complex and require considerab
 
 In particular, Deep Learning methods are especially powerful, but hard to interpret in regards to their capabilities and learned representations.
 
-Can we enable better understanding of how neural nets learn, without having to change model code or sacrifice performance?
+Can we enable better understanding of how neural nets learn, without having to change model code or sacrifice performance? Can I finish my thesis on time?
 
 TDB addresses these challenges by providing run-time visualization tools for neural nets. Real-time visual debugging allows training bugs to be detected sooner, thereby reducing the iteration time needed to build the right model.
 
@@ -56,23 +56,33 @@ To get started, check out the [MNIST Visualization Demo](notebooks/mnist_demo.ip
 
 ### Debugging
 
-`status,result=tdb.debug(evals,feed_dict=None,breakpoints=None,break_immediately=False,session=None)`
+```python
+status,result=tdb.debug(evals,feed_dict=None,breakpoints=None,break_immediately=False,session=None)
+```
 
 `debug()` behaves just like Tensorflow's Session.run(). If a breakpoint is hit, `status` is set to 'PAUSED' and `result` is set to `None`. Otherwise, `status` is set to 'FINISHED' and `result` is set to a list of evaluated values.
 
-`status,result=tdb.s()`
+```python
+status,result=tdb.s()
+```
 
 Evaluate the next node, then pause immediately to await user input. Unless we have reached the end of the execution queue, `status` will remain 'PAUSED'. `result` is set to the value of the node we just evaluated.
 
-`status,result=tdb.c()`
+```python
+status,result=tdb.c()
+```
 
 Continues execution until the next breakpoint or end. Behaves like `debug`.
 
-`list=tdb.get_exe_queue()`
+```python
+list=tdb.get_exe_queue()
+```
 
 Return value: list of remaining nodes to be evaluated, in order.
 
-`val=tdb.get_value(node)`
+```python
+val=tdb.get_value(node)
+```
 
 Returns value of an evaluated node (a string name or a tf.Tensor)
 
@@ -119,7 +129,7 @@ def watch_loss(ctx,loss):
 ploss=tdb.plot_op(viz.watch_loss,inputs=[loss])
 ```
 
-Refer to the [MNIST Visualization Demo](notebooks/mnist_demo.ipynb) for more examples.
+Refer to the [MNIST Visualization Demo](notebooks/mnist_demo.ipynb) for more examples. You can also find more examples in the [tests/](tdb/tests) directory.
 
 ## FAQ
 
