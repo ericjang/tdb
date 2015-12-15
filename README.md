@@ -1,6 +1,6 @@
 # TDB
 
-TensorDebugger (TDB) is a visual debugger for TensorFlow. 
+TensorDebugger (TDB) is a visual debugger for deep learning. It extends TensorFlow (Google's Deep Learning framework) with breakpoints + real-time visualization of the data flowing through the computational graph.
 
 [Video Demo](https://www.youtube.com/watch?v=VcoVEvGEmFM)
 
