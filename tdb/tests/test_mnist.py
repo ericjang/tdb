@@ -7,7 +7,11 @@ import sys
 import tensorflow as tf
 import unittest
 import tdb
+
 from tdb.examples import mnist, viz
+
+
+data_file = "/home/afruizc/Documents/hacks/tdb/tdb/tests/mnist_0.npz"
 
 
 class TestMNIST(unittest.TestCase):
@@ -36,7 +40,7 @@ class TestMNIST(unittest.TestCase):
       tf.initialize_all_variables().run()
       print('Variables initialized')
       step=0
-      with np.load("mnist_0.npz") as data:
+      with np.load(data_file) as data:
         feed_dict = {
           train_data_node: data['batch_data'],
           train_labels_node: data['batch_labels']
@@ -72,7 +76,7 @@ class TestMNIST(unittest.TestCase):
     tf.initialize_all_variables().run()
 
     # use the same input every time for this test
-    with np.load("mnist_0.npz") as data:
+    with np.load(data_file) as data:
         a=data['batch_data']
         b=data['batch_labels']
         feed_dict = {

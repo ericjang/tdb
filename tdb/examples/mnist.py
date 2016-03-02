@@ -2,6 +2,7 @@
 builds a simple mnist model
 """
 
+import argparse
 import gzip
 import numpy as np
 import re
@@ -10,9 +11,12 @@ import tensorflow as tf
 
 FLAGS = tf.app.flags.FLAGS
 
-tf.app.flags.DEFINE_string('train_dir', '/tmp/cifar10_train',
-                           """Directory where to write event logs """
-                           """and checkpoint.""")
+try:
+    tf.app.flags.DEFINE_string('train_dir', '/tmp/cifar10_train',
+                               """Directory where to write event logs """
+                               """and checkpoint.""")
+except argparse.ArgumentError:
+    pass
 
 IMAGE_SIZE = 28
 NUM_CHANNELS = 1

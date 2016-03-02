@@ -1,7 +1,7 @@
 from base64 import b64encode
 from ipykernel.comm import Comm
 from IPython import get_ipython
-import StringIO
+from io import StringIO
 import urllib
 
 _comm = None
