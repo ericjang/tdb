@@ -1,8 +1,10 @@
-from base64 import b64encode
+import urllib
+import base64
+
 from ipykernel.comm import Comm
 from IPython import get_ipython
-from io import StringIO
-import urllib
+
+from io import BytesIO
 
 _comm = None
 
@@ -43,14 +45,15 @@ def send_action(action, params=None):
 
 
 def send_fig(fig, name):
-        """
-        sends figure to frontend
-        """
-        imgdata = StringIO.StringIO()
-        fig.savefig(imgdata, format='png')
-        imgdata.seek(0)  # rewind the data
-        uri = 'data:image/png;base64,' + urllib.quote(b64encode(imgdata.buf))
-        send_action("update_plot", params={"src": uri, "name": name})
+    """
+    sends figure to frontend
+    """
+    imgdata = BytesIO()
+    fig.savefig(imgdata, format='png')
+    imgdata.seek(0)  # rewind the data
+    uri = 'data:image/png;base64,' + urllib.parse.quote(
+        base64.encodebytes(imgdata.getbuffer()))
+    send_action("update_plot", params={"src": uri, "name": name})
 
 
 # handler messages
