@@ -1,8 +1,6 @@
 
 COUNT = 0
 
-# import matplotlib
-# matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 from .python_op import PythonOp
