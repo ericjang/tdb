@@ -3,7 +3,7 @@ top-level interface methods so user doesn't need to directly construct
 a dbsession
 """
 
-import debug_session
+from . import debug_session
 
 # default session
 _dbsession = None

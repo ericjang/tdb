@@ -1,6 +1,6 @@
 
-from ht_op import HTOp
-import op_store
+from .ht_op import HTOp
+from . import op_store
 import tensorflow as tf
 
 # debug status codes

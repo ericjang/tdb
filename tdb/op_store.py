@@ -1,5 +1,5 @@
 from toposort import toposort_flatten
-from transitive_closure import transitive_closure
+from .transitive_closure import transitive_closure
 import tensorflow as tf
 
 _ops = {}  # Map<string,tdb.PythonOp>

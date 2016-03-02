@@ -3,8 +3,8 @@ COUNT = 0
 
 import numpy as np
 
-from ht_op import HTOp
-import op_store
+from .ht_op import HTOp
+from . import op_store
 
 
 def python_op(fn, inputs=None, outputs=None):

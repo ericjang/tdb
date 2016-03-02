@@ -1,13 +1,13 @@
 
 COUNT = 0
 
-import matplotlib
-matplotlib.use("Agg")
+# import matplotlib
+# matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from python_op import PythonOp
-import app
-import op_store
+from .python_op import PythonOp
+from . import app
+from . import op_store
 
 
 def plot_op(fn, inputs=[], outputs=[]):
